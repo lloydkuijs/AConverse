@@ -8,8 +8,8 @@ setuptools.setup(
     version="0.0.1",
     author="Lloyd Kuijs",
     author_email="lloydkuijs@outlook.com",
-    description="A framework of combined packages and modules to create a personal assistant with.",
-    url="https://github.com/lloydkuijs/AI-visualized-backend",
+    description="A simple python library showing off how easy it is to setup a voice based assistant with the Rasa framework or any or HTTP server that takes string requests",
+    url="https://github.com/lloydkuijs/AConverse",
     packages=setuptools.find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha"
