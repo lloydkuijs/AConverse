@@ -1,7 +1,7 @@
 import setuptools
 
-#with open("README.md", "r") as fh:
-#   long_description = fh.read()
+with open("README.md", "r") as fh:
+   long_description = fh.read()
 
 setuptools.setup(
     name="Mio-framework", # Replace with your own username
@@ -9,6 +9,8 @@ setuptools.setup(
     author="Lloyd Kuijs",
     author_email="lloydkuijs@outlook.com",
     description="A simple python library showing off how easy it is to setup a voice based assistant with the Rasa framework or any or HTTP server that takes string requests",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/lloydkuijs/AConverse",
     packages=setuptools.find_packages(),
     python_requires='>=3.5',
