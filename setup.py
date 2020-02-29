@@ -4,11 +4,11 @@ with open("README.md", "r") as fh:
    long_description = fh.read()
 
 setuptools.setup(
-    name="Mio-framework", # Replace with your own username
+    name="AConverse", # Replace with your own username
     version="0.0.1",
     author="Lloyd Kuijs",
     author_email="lloydkuijs@outlook.com",
-    description="A simple python library showing off how easy it is to setup a voice based assistant with the Rasa framework or any or HTTP server that takes string requests",
+    description="A simple interface that takes in a voice and is able to respond with a server over http to request a response from a AI or other device.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/lloydkuijs/AConverse",
