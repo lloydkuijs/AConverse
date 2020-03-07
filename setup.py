@@ -12,7 +12,8 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/lloydkuijs/AConverse",
-    packages=setuptools.find_packages(),
+    package_dir={"": "src"},
+    packages=setuptools.find_namespace_packages(where="src"),
     python_requires='>=3.5',
     install_requires=[
         'SpeechRecognition>=3.8.1',
