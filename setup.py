@@ -19,6 +19,7 @@ setuptools.setup(
         'SpeechRecognition>=3.8.1',
         'pydub>=0.23.1',
         'requests>=2.22.0',
-        'gTTS>=2.1.1'
+        'gTTS>=2.1.1',
+        'PyAudio>=0.2.11',
     ]
 )
