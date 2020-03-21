@@ -6,6 +6,7 @@ from pydub.playback import play
 
 
 class Service(enum.Enum):
+    custom = 0
     google_speech = 1
     google_cloud = 2
     #watson = 3
@@ -30,7 +31,7 @@ class TextToSpeech():
         file_name = "{}{}.mp3".format(self.cache_dir, text)
         file_exists = os.path.isfile(file_name)
         
-        if(not file_exists):
+        if(not file_exists or self.service == Service.custom):
             self._generate_audio(text, file_name, self.service)
         
         audio_segment = AudioSegment.from_mp3(file_name)
@@ -43,13 +44,17 @@ class TextToSpeech():
         pass
 
     def _generate_audio(self, text: str, file_name, service: Service):
-        if(self.service == Service.google_speech):
+
+        if(self.service == Service.custom):
+            return
+
+        else if(self.service == Service.google_speech):
             from gtts import gTTS 
 
             tts = gTTS(text)
             tts.save(file_name)
 
-        if(self.service == Service.google_cloud):
+        else if(self.service == Service.google_cloud):
             from google.cloud import texttospeech
 
             # Instantiates a client
