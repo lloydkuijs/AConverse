@@ -1,3 +1,4 @@
+# WARNING: Currently not working because Porcupine pypi package does not automatically contain the windows folder, finding a fix.
 from setuptools import setup
 
 with open("README.md", "r") as fh:
@@ -12,9 +13,9 @@ with open("README.md", "r") as fh:
         long_description=long_description,
         long_description_content_type="text/markdown",
         url="https://github.com/lloydkuijs/AConverse",
-        package_dir={"AConverse": "src"},
-        packages=setuptools.find_namespace_packages(where="src"),
-        python_requires='>=3.5',
+        package_dir={"": "src"},
+        packages=['detection', 'tts'],
+        python_requires='=3.5',
         install_requires=[
             'SpeechRecognition>=3.8.1',
             'pydub>=0.23.1',
@@ -24,6 +25,5 @@ with open("README.md", "r") as fh:
             'numpy',
             'enum34==1.1.6',
             'pysoundfile>=0.9.0',
-            'GitPython'
         ]
     )
