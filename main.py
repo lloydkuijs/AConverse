@@ -1,5 +1,5 @@
-from detection.hotword import Detector
-from tts.tts_cached import TextToSpeech, Service
+from src.detection.hotword import Detector
+from src.tts.tts_cached import TextToSpeech, Service
 
 tts = TextToSpeech(False, Service.google_speech)
 
