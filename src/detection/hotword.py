@@ -8,9 +8,13 @@ class Detector(object):
     def __init__(self):
         pass
     
-    def listen(self, callback, keyword_file_paths= None, keywords=None, sensitivities=None):
+    def listen(self, callback, keyword_file_paths= None, sensitivities=None):
         audio_stream = None
-        handle = porcupine.create(keyword_file_paths=keyword_file_paths, keywords=keywords, sensitivities=sensitivities)
+
+        if(keyword_file_paths is None):
+            handle = porcupine.create(keywords=porcupine.KEYWORDS) # Use default keywords
+        else:
+            handle = porcupine.create(keyword_file_paths=keyword_file_paths, sensitivities=sensitivities)
 
         pa = pyaudio.PyAudio()
 
