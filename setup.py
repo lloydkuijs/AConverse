@@ -1,5 +1,5 @@
 # WARNING: Currently not working because Porcupine pypi package does not automatically contain the windows folder, finding a fix.
-from setuptools import setup
+'''from setuptools import setup
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -26,4 +26,4 @@ with open("README.md", "r") as fh:
             'enum34==1.1.6',
             'pysoundfile>=0.9.0',
         ]
-    )
+    )'''

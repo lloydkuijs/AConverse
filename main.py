@@ -1,7 +1,12 @@
 from src.detection.hotword import Detector
-from rasa_nlu import train
+import src.intent.parser as parser
+
+intentParser = None
 
 def callback():
-    print("hello hotword")
+    print(intentParser.parse("Hello"))
+    
 
-Detector().listen(callback)
+if __name__ == "__main__":
+    intentParser = parser.IntentParser().initialize()
+    Detector().listen(callback)
