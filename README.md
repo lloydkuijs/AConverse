@@ -1,3 +1,5 @@
+## ```THIS README IS OUTDATED FOR NOW, SPECS HAVE CHANGED```
+
 ## AConverse
 A library consisting of cross platform hotword detection, speech recognition, and text to speech.
 
