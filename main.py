@@ -1,5 +1,5 @@
 from src.detection.hotword import Detector
-import src.intent.parser as parser
+from src.intent.parser import IntentParser
 
 intentParser = None
 
@@ -8,5 +8,5 @@ def callback():
     
 
 if __name__ == "__main__":
-    intentParser = parser.IntentParser().initialize()
+    intentParser = IntentParser.initialize()
     Detector().listen(callback)
