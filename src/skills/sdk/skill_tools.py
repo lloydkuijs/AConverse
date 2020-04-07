@@ -15,14 +15,14 @@ class ISkill(ABC):
 class skill_invoker:
 
     def __init__(self):
-        self._commands = {}
+        self._skills = {}
 
     def register(self, skill: ISkill):
-        self._commands[skill.name] = skill
+        self._skills[skill.name()] = skill
 
     def execute(self, skill_name):
-        if(skill_name in self._commands.keys()):
-            self._commands[skill_name].execute()
+        if(skill_name in self._skills.keys()):
+            self._skills[skill_name].execute()
         else:
             print(f"Failed to execute {skill_name}, not found.")
 

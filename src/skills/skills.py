@@ -2,9 +2,9 @@ from src.skills.sdk.skill_tools import ISkill
 
 class SampleSkill(ISkill):
 
-    def __init__(self, payload: str) -> None:
-        self._payload = payload
-
+    def __init__(self) -> None:
+        pass
+    
     def name(self):
         return "sample_skill"
 
