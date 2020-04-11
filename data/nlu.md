@@ -6,6 +6,10 @@
 - good evening
 - hey there
 
+## intent:restaurant_search
+- show me [chinese](cuisine) restaurants
+- find [chinese](cuisine) restaurants near me
+
 ## intent:goodbye
 - bye
 - goodbye
