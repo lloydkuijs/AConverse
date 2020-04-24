@@ -24,5 +24,5 @@ class skill_invoker:
         if(skill_name in self._skills.keys()):
             self._skills[skill_name].execute()
         else:
-            print(f"Failed to execute {skill_name}, not found.")
+            print("Failed to execute {skill_name}, not found.")
 
