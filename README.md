@@ -3,7 +3,7 @@ A library of tools to communicate with the AConverse REST server
 
 
 ## Installation
-### You should be used Python version <= 3.6.9, This library used PyAudio which is not supported on higher versions as of 24/04/2020. Check up on the current state of that package and Rasa for using newer versions or use a unofficial wheel
+### You should be used Python version <= 3.6.9, This library uses PyAudio which is not supported on higher versions as of 24/04/2020. Check up on the current state of PyAudio and Rasa for using newer versions or use an unofficial wheel
 
 - Install the the requirements with `pip install -r requirements.txt`
 - Run the installation file with python `Python install.py`
