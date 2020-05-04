@@ -1,5 +1,3 @@
-
-
 # AConverse
 A library of tools to communicate with the AConverse REST server
 

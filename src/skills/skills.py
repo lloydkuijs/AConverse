@@ -1,4 +1,5 @@
-from src.skills.sdk.skill_tools import ISkill
+from src.skills.sdk.skill_base import ISkill
+from src.skills.sdk.speech import transcribe
 
 class SampleSkill(ISkill):
 
@@ -9,4 +10,5 @@ class SampleSkill(ISkill):
         return "sample_skill"
 
     def execute(self) -> None:
-        print("Hello skill!")
+        transcribe()
+        
