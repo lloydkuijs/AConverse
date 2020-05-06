@@ -5,8 +5,9 @@ import wave
 import time
 import os
 
-SHORT_NORMALIZE = (1.0/32768.0)
-FORMAT = pyaudio.paInt16
+# Half of 16 bit audio depth 2 ^ 16 / 2, normalizes the audio depth
+SHORT_NORMALIZE = (1.0/32768.0) 
+FORMAT = pyaudio.paInt16 # Record at 16 bit audio depth
 CHANNELS = 1
 RATE = 16000
 CHUNK = 1024
@@ -29,9 +30,9 @@ class Recorder:
 
         sum_squares = 0.0
         for sample in shorts:
-            n = sample * SHORT_NORMALIZE
+            n = sample * SHORT_NORMALIZE # Multiplication of the reciprocal is the same as division
             sum_squares += n * n
-        rms = math.pow(sum_squares / count, 0.5)
+        rms = math.pow(sum_squares / count, 0.5) # Revert the square
 
         return rms * 1000
 
