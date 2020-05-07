@@ -1,5 +1,5 @@
 from src.skills.sdk.skill_base import ISkill
-from src.skills.sdk.speech import transcribe
+from src.skills.sdk.converse import transcribe
 
 class SampleSkill(ISkill):
 
