@@ -1,6 +1,5 @@
-SpeechRecognition>=3.8.1
-pydub>=0.23.1
+pydub>=0.24.1
 requests>=2.23.0
-rasa==1.9.7
-pyaudio>=0.2.11
-PyYAML>=5.3.1s
+rasa-nlu==0.15.1
+pyaudio==0.2.11
+PyYAML==5.3.1

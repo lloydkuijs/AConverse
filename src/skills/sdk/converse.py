@@ -1,32 +1,45 @@
-from src.detection.voice import Recorder, DEFAULT_MAX_TIMEOUT, DEFAULT_SILENCE_TIMEOUT
+from src.detection.voice import Recorder as _Recorder, DEFAULT_MAX_TIMEOUT as _DEFAULT_MAX_TIMEOUT, DEFAULT_SILENCE_TIMEOUT as _DEFAULT_SILENCE_TIMEOUT, SAMPLE_WIDTH, RATE, CHANNELS, FORMAT
+
 from sys import getsizeof
 import requests
 import json
+import io
+import base64
 
 # TODO: Make the request url easily adjustable? Maybe add versioning to the SDK
-request_url = "https://localhost:5001/api/v0.4/" 
+request_url = "https://localhost:5001/api/v0.4/"
 
-def transcribe(silence_timeout=DEFAULT_SILENCE_TIMEOUT, max_timeout=DEFAULT_MAX_TIMEOUT):
+# TODO: Remove verify false if release
+_VERIFY = False
+
+
+def transcribe(silence_timeout=_DEFAULT_SILENCE_TIMEOUT, max_timeout=_DEFAULT_MAX_TIMEOUT):
 
     audio = None
-    with Recorder() as recorder:
-        recorder.stabilize_threshold(2)  # Default value
+    with _Recorder() as recorder:
         audio = recorder.record(silence_timeout, max_timeout)
     
-    request = TranscribeRequest(audio, "audio/wav")
+    print(audio)
+    audio_encoded = base64.b64encode(audio)
 
-    result = requests.post(request_url + "converse/synthesize", request)
+    message = {
+        "audio": audio_encoded.decode('utf-8'),
+        "AudioType": "audio/l16",
+        "SamplingRate": RATE,
+        "Channels": CHANNELS
+    }
 
+    response = requests.post(request_url + "converse/transcribe", json=message, verify=_VERIFY)
 
-def synthesize(text : str):
+    response = response.json()['results']
+    response = response[0]
+    response = response['alternatives'][0]
+    response = response['transcript']
+    
+    return response
+
+    
+def synthesize(text: str):
     result = requests.post(request_url + "converse/synthesize", text)
 
     print(result)
-
-
-class TranscribeRequest():
-
-    def __init__(self, audio : bytes, format: str):
-        self.audio = audio
-        self.format = format
-

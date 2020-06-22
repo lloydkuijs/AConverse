@@ -57,7 +57,7 @@ class Recorder:
     def record(self, silence_timeout=DEFAULT_SILENCE_TIMEOUT, max_timeout=DEFAULT_MAX_TIMEOUT):
         """Time is in seconds"""
 
-        rec = []
+        frames = []
         current = time.time()
         max_time = time.time() + max_timeout
         # Is only set if silence is detected, set to max_timeout so it doesn't falsely interrupt
@@ -75,14 +75,14 @@ class Recorder:
                     silence_start = time.time()
                 else:  # start time was set
                     if((silence_start + silence_timeout) < current):
-                        rec.append(data) # Append the last bit of data recorded
+                        #frames.append(data) # Append the last bit of data recorded
                         break
             else:
                 silence_start = max_time  # Reset the silence start
 
-            rec.append(data)
+            frames.append(data)
 
-        return rec
+        return b''.join(frames)
 
     @staticmethod
     def stabilize_threshold(time_seconds: int = 2):
